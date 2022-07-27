@@ -1,4 +1,5 @@
-export default function handler(req, res) {
+export default async function handler(req, res) {
+	await new Promise((res) => setTimeout(res, 3000));
 	if (req.method !== "POST") {
 		res.status(400).send({ code: "ERROR/METHOD", message: "Only POST methods are allowed" });
 	}
